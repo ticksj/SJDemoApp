@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_1"
+        android:icon="@drawable/homepage_selector"
+        android:title="首页" />
+    <item
+        android:id="@+id/fragment_2"
+        android:title="项目" />
+    <item
+        android:id="@+id/fragment_3"
+        android:title="体系" />
+
+</menu>
