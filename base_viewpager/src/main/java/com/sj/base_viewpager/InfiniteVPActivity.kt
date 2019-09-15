@@ -2,6 +2,10 @@ package com.sj.base_viewpager
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,6 +17,19 @@ import kotlinx.android.synthetic.main.activity_infinite_vp.*
 class InfiniteVPActivity : AppCompatActivity() {
 
     var pics = mutableListOf<Int>()
+    var startAutoScroll = false
+
+    var handler = object : Handler(Looper.getMainLooper()) {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when{
+                msg.what == 0 -> vp.setCurrentItem(vp.currentItem + 1)
+                msg.what == 1 -> startScroll()
+                msg.what == 2 -> stopScroll()
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +37,54 @@ class InfiniteVPActivity : AppCompatActivity() {
         pics.add(R.drawable.p1)
         pics.add(R.drawable.p2)
         pics.add(R.drawable.p3)
+        initVP()
 //        FuncationOne()
         FuncationTwo()
 //        FuncationThree()
+        handler.sendEmptyMessage(1)
     }
 
+    private fun initVP() {
+        try {
+            var field = ViewPager::class.java.getDeclaredField("mScroller")
+            field.isAccessible = true
+            field.set(vp, VPSpeedScroller(3000,this@InfiniteVPActivity));
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        vp.setOnTouchListener(object :View.OnTouchListener{
+            override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
+                when{
+                    p1!!.action == MotionEvent.ACTION_UP ->startScroll()
+                    else -> handler.sendEmptyMessage(2)
+                }
+                return false
+            }
+        })
+    }
+
+
+    private fun startScroll() {
+        if (thread.state == Thread.State.RUNNABLE) {
+            return
+        }
+        if (startAutoScroll) {
+        }
+        startAutoScroll = true
+        thread.start()
+    }
+    private fun stopScroll() {
+        thread
+        if (thread.state == Thread.State.RUNNABLE) {
+            return
+        }
+        if (startAutoScroll) {
+        }
+        startAutoScroll = true
+
+        thread.start()
+    }
+    lateinit var thread :Thread
     /**
      * 伪无限实现
      */
@@ -56,7 +116,7 @@ class InfiniteVPActivity : AppCompatActivity() {
                 var adapter = vp.adapter as VPAdapter2
                 when {
                     currPosition == 0 -> vp.setCurrentItem(adapter.list.size - 2, false)
-                    currPosition == adapter.list.size-1 -> vp.setCurrentItem(1, false)
+                    currPosition == adapter.list.size - 1 -> vp.setCurrentItem(1, false)
                 }
 
             }
