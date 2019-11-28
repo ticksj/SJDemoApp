@@ -1,2 +1,2 @@
-include ':app', ':navigation', ':base_viewpager', ':kotlin_note'
+include ':app', ':navigation', ':base_viewpager', ':kotlin_note', ':base_view', ':base_service', ':base_database', ':base_animation'
 rootProject.name='SJDemoApp'
