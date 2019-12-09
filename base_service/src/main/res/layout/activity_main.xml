@@ -7,12 +7,85 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/start_simple_service_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="启动简单服务"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/bind_simple_service_tv"
+        app:layout_constraintEnd_toStartOf="@+id/stop_simple_service_tv"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/stop_simple_service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="停止简单服务"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/unbind_simple_service_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/start_simple_service_tv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bind_simple_service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="绑定简单服务"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/start_foreground_service_tv"
+        app:layout_constraintEnd_toStartOf="@+id/unbind_simple_service_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_simple_service_tv" />
+
+    <TextView
+        android:id="@+id/unbind_simple_service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="解绑简单服务"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/start_intent_service_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bind_simple_service_tv"
+        app:layout_constraintTop_toBottomOf="@+id/stop_simple_service_tv" />
+
+
+    <TextView
+        android:id="@+id/start_foreground_service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="启动前台服务"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/start_intent_service_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bind_simple_service_tv"
+        app:layout_constraintVertical_bias="0.595" />
+
+    <TextView
+        android:id="@+id/start_intent_service_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fb742e"
+        android:padding="10dp"
+        android:text="启动IntentService"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toEndOf="@+id/start_foreground_service_tv"
+        app:layout_constraintTop_toBottomOf="@+id/unbind_simple_service_tv"
+        app:layout_constraintVertical_bias="0.595" />
 </androidx.constraintlayout.widget.ConstraintLayout>
