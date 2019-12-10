@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.base_a5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                baseAnimationSet();
             }
         });
     }
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         TranslateAnimation ta = new TranslateAnimation(0, 200, 0, 300);
         ta.setDuration(1000);
         baseAnimationView.startAnimation(ta);
-
         ta.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 //复杂动画实现
                 //fromXType,fromXValue, toXType,toXValue,fromYType,fromYValue, toYType,toYValue
                 //起点X方向参照值,起点X，终点X方向参照值,终点X，起点Y方向参照值,起点Y，终点Y方向参照值,终点Y
-                TranslateAnimation ta = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,1,
-                        Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,1);
+                TranslateAnimation ta = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1,
+                        Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1);
                 ta.setDuration(2000);
                 baseAnimationView.startAnimation(ta);
             }
@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     private void baseAnimationScaleAnimation() {
@@ -104,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 //复杂动画实现
                 //起始X倍数，最终X倍数，起始Y倍数，最终X倍数
                 ScaleAnimation sa = new ScaleAnimation(4, 2, 4, 2,
-                        ScaleAnimation.RELATIVE_TO_SELF, 0.5f,
-                        ScaleAnimation.RELATIVE_TO_SELF, 0.5f);
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f);
                 sa.setDuration(1000);
                 baseAnimationView.startAnimation(sa);
             }
@@ -119,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void baseAnimationRotateAnimation() {
-        //RotateAnimation ra = new RotateAnimation(0, 360, 100, 100);
-        RotateAnimation ra = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_PARENT, 0.5f);
+//        RotateAnimation ra = new RotateAnimation(0, 360, 0, 0);
+        RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         ra.setDuration(1000);
         baseAnimationView.startAnimation(ra);
     }
@@ -129,5 +126,26 @@ public class MainActivity extends AppCompatActivity {
         AlphaAnimation aa = new AlphaAnimation(0, 1);
         aa.setDuration(1000);
         baseAnimationView.startAnimation(aa);
+    }
+
+    private void baseAnimationSet() {
+        TranslateAnimation ta = new TranslateAnimation(0, 200, 0, 0);
+        ScaleAnimation sa = new ScaleAnimation(4, 2, 4, 2,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+//        RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation ra = new RotateAnimation(0, 360, 0, 0);
+        AlphaAnimation aa = new AlphaAnimation(0, 1);
+        AnimationSet animationSet = new AnimationSet(true);
+        ta.setDuration(1000);
+        sa.setDuration(1000);
+        ra.setDuration(1000);
+        aa.setDuration(1000);
+        animationSet.addAnimation(ta);
+//        animationSet.addAnimation(sa);
+        animationSet.addAnimation(ra);
+//        animationSet.addAnimation(aa);
+        animationSet.setDuration(1000);
+        baseAnimationView.startAnimation(animationSet);
     }
 }
