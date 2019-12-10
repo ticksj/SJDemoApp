@@ -1,19 +1,25 @@
 package com.sj.base_animation;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private View baseAnimationView;
+    private View fAnimaitonView;
+    private LinearLayout content_ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         baseAnimationView = findViewById(R.id.iv1);
+        fAnimaitonView = findViewById(R.id.f_iv);
+        content_ll = (LinearLayout)findViewById(R.id.content_ll);
+        Animation aSet = AnimationUtils.loadAnimation(this, R.anim.animation_set_1);
+        LayoutAnimationController controller = new LayoutAnimationController(aSet);
+        controller.setOrder(LayoutAnimationController.ORDER_RANDOM);
+        controller.setDelay(0.5f);
+        content_ll.setLayoutAnimation(controller);
         findViewById(R.id.base_a1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +67,17 @@ public class MainActivity extends AppCompatActivity {
                 baseAnimationSet();
             }
         });
+        findViewById(R.id.f_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animationDrawable();
+            }
+        });
+    }
+
+    private void animationDrawable() {
+        fAnimaitonView.setBackgroundResource(R.drawable.drawable_animation);
+        ((AnimationDrawable) fAnimaitonView.getBackground()).start();
     }
 
     private void baseAnimationTranslateAnimation() {
@@ -133,8 +157,8 @@ public class MainActivity extends AppCompatActivity {
         ScaleAnimation sa = new ScaleAnimation(4, 2, 4, 2,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-//        RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        RotateAnimation ra = new RotateAnimation(0, 360, 0, 0);
+        RotateAnimation ra = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+//        RotateAnimation ra = new RotateAnimation(0, 360, 0, 0);
         AlphaAnimation aa = new AlphaAnimation(0, 1);
         AnimationSet animationSet = new AnimationSet(true);
         ta.setDuration(1000);
@@ -142,10 +166,12 @@ public class MainActivity extends AppCompatActivity {
         ra.setDuration(1000);
         aa.setDuration(1000);
         animationSet.addAnimation(ta);
-//        animationSet.addAnimation(sa);
+        animationSet.addAnimation(sa);
         animationSet.addAnimation(ra);
-//        animationSet.addAnimation(aa);
+        animationSet.addAnimation(aa);
         animationSet.setDuration(1000);
         baseAnimationView.startAnimation(animationSet);
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.base_animation);
+        baseAnimationView.startAnimation(a);
     }
 }
