@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 工作流方式：方便任务间的调整，消除强耦合
+     * 参考链接：https://mp.weixin.qq.com/s/sKRe_jyFBYEDIKdgjz7rZQ
+     */
     private void startFlow() {
         WorkFlow workFlow = new WorkFlow(new WorkFlow.WorkFlowListener() {
             @Override

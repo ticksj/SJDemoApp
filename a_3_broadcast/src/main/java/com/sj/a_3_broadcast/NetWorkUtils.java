@@ -1,0 +1,172 @@
+package com.sj.a_3_broadcast;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
+public class NetWorkUtils {
+    /**
+     * 判断是否有网络连接
+     */
+    public static boolean isNetworkConnected(Context context) {
+        if (context != null) {
+            // 获取手机所有连接管理对象(包括对wi-fi,net等连接的管理)
+            ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            // 获取NetworkInfo对象
+            NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+            //判断NetworkInfo对象是否为空
+            if (networkInfo != null)
+                return networkInfo.isAvailable();
+        }
+        return false;
+    }
+
+    /**
+     * 判断WIFI网络是否可用
+     */
+    public static boolean isMobileConnected(Context context) {
+        if (context != null) {
+            //获取手机所有连接管理对象(包括对wi-fi,net等连接的管理)
+            ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            //获取NetworkInfo对象
+            NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+            //判断NetworkInfo对象是否为空 并且类型是否为MOBILE
+            if (networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+                return networkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
+//
+//    /**
+//     * 获取WIFI信息
+//     */
+//    public static WifiInfo fetchSSIDInfo(){
+//        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+//        return manager.getConnectionInfo();
+//    }
+//
+//    /**
+//     * 获取WIFI名字
+//     **/
+//    public String getWifiSSID() {
+//        return fetchSSIDInfo().getSSID().replace("\"", "");
+//    }
+//
+//    /**
+//     * 获取WIFi的MAC地址
+//     **/
+//    public String getWifiMacAddress() {
+//        return fetchSSIDInfo().getMacAddress();
+//    }
+//
+//    /**
+//     * 获取当前网络连接的类型信息
+//     */
+//    public static int getConnectedType(Context context) {
+//        if (context != null) {
+//            //获取手机所有连接管理对象
+//            ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//            //获取NetworkInfo对象
+//            NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+//            if (networkInfo != null && networkInfo.isAvailable()) {
+//                //返回NetworkInfo的类型
+//                return networkInfo.getType();
+//            }
+//        }
+//        return -1;
+//    }
+//
+//    /**
+//     * 获取当前的网络状态 ：没有网络-0：WIFI网络1：4G网络-4：3G网络-3：2G网络-2
+//     */
+//    public static int getAPNType(Context context) {
+//        //结果返回值
+//        int netType = 0;
+//        //获取手机所有连接管理对象
+//        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        //获取NetworkInfo对象
+//        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+//        //NetworkInfo对象为空 则代表没有网络
+//        if (networkInfo == null) {
+//            return netType;
+//        }
+//        //否则 NetworkInfo对象不为空 则获取该networkInfo的类型
+//        int nType = networkInfo.getType();
+//        if (nType == ConnectivityManager.TYPE_WIFI) {
+//            //WIFI
+//            netType = 1;
+//        } else if (nType == ConnectivityManager.TYPE_MOBILE) {
+//            int nSubType = networkInfo.getSubtype();
+//            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+//            //3G   联通的3G为UMTS或HSDPA 电信的3G为EVDO
+//            if (nSubType == TelephonyManager.NETWORK_TYPE_LTE
+//                    && !telephonyManager.isNetworkRoaming()) {
+//                netType = 4;
+//            } else if (nSubType == TelephonyManager.NETWORK_TYPE_UMTS
+//                    || nSubType == TelephonyManager.NETWORK_TYPE_HSDPA
+//                    || nSubType == TelephonyManager.NETWORK_TYPE_EVDO_0
+//                    && !telephonyManager.isNetworkRoaming()) {
+//                netType = 3;
+//                //2G 移动和联通的2G为GPRS或EGDE，电信的2G为CDMA
+//            } else if (nSubType == TelephonyManager.NETWORK_TYPE_GPRS
+//                    || nSubType == TelephonyManager.NETWORK_TYPE_EDGE
+//                    || nSubType == TelephonyManager.NETWORK_TYPE_CDMA
+//                    && !telephonyManager.isNetworkRoaming()) {
+//                netType = 2;
+//            } else {
+//                netType = 2;
+//            }
+//        }
+//        return netType;
+//    }
+//
+//    /**
+//     * 获取运营商
+//     * @return 中国移动/中国联通/中国电信/未知
+//     */
+//    public static String getProvider(Context context) {
+//        String provider = "未知";
+//        try {
+//            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+//            @SuppressLint("MissingPermission") String IMSI = telephonyManager.getSubscriberId();
+////            Log.d(TAG, "getProvider.IMSI:" + IMSI);
+//            if (IMSI == null) {
+//                if (TelephonyManager.SIM_STATE_READY == telephonyManager.getSimState()) {
+//                    String operator = telephonyManager.getSimOperator();
+////                    Log.d(TAG, "getProvider.operator:" + operator);
+//                    if (operator != null) {
+//                        if (operator.equals("46000") || operator.equals("46002") || operator.equals("46007")) {
+//                            provider = "中国移动";
+//                        } else if (operator.equals("46001")) {
+//                            provider = "中国联通";
+//                        } else if (operator.equals("46003")) {
+//                            provider = "中国电信";
+//                        }
+//                    }
+//                }
+//            } else {
+//                if (IMSI.startsWith("46000") || IMSI.startsWith("46002") || IMSI.startsWith("46007")) {
+//                    provider = "中国移动";
+//                } else if (IMSI.startsWith("46001")) {
+//                    provider = "中国联通";
+//                } else if (IMSI.startsWith("46003")) {
+//                    provider = "中国电信";
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return provider;
+//    }
+//
+//    /**
+//     * 判断GPS是否打开，需要ACCESS_FINE_LOCATION权限
+//     */
+//    public static boolean isGPSEnabled(Context context) {
+//        //获取手机所有连接LOCATION_SERVICE对象
+//        LocationManager locationManager = ((LocationManager) context.getSystemService(Context.LOCATION_SERVICE));
+//        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+//    }
+
+}

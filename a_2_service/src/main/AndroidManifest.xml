@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sj.base_service">
+    package="com.sj.a_2_service">
 
     <application
         android:allowBackup="true"
@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".ForegroundService"
+            android:name="com.sj.a_2_service.ForegroundService"
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.sj.a_2_service.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".SimpleService" />
-        <service android:name=".MyIntentService" />
+        <service android:name="com.sj.a_2_service.SimpleService" />
+        <service android:name="com.sj.a_2_service.MyIntentService" />
     </application>
 
 </manifest>
