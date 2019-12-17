@@ -1,5 +1,6 @@
 package com.sj.b_4_animation;
 
+import android.animation.ObjectAnimator;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private View baseAnimationView;
+    private View objectView;
     private View fAnimaitonView;
     private LinearLayout content_ll;
 
@@ -30,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         baseAnimationView = findViewById(R.id.iv1);
+        objectView = findViewById(R.id.iv2);
         fAnimaitonView = findViewById(R.id.f_iv);
-        content_ll = (LinearLayout)findViewById(R.id.content_ll);
+        content_ll = (LinearLayout) findViewById(R.id.content_ll);
         Animation aSet = AnimationUtils.loadAnimation(this, R.anim.animation_set_1);
         LayoutAnimationController controller = new LayoutAnimationController(aSet);
         controller.setOrder(LayoutAnimationController.ORDER_RANDOM);
@@ -67,6 +70,36 @@ public class MainActivity extends AppCompatActivity {
                 baseAnimationSet();
             }
         });
+        findViewById(R.id.object_a1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeObjectTranslationX();
+            }
+        });
+        findViewById(R.id.object_a2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeObjectScaleX();
+            }
+        });
+        findViewById(R.id.object_a3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeObjectRotation();
+            }
+        });
+        findViewById(R.id.object_a4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeObjectAlpha();
+            }
+        });
+        findViewById(R.id.object_a5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeObjectColor();
+            }
+        });
         findViewById(R.id.f_tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    // ---------------------基础动画----------------------------------------------
     private void animationDrawable() {
         fAnimaitonView.setBackgroundResource(R.drawable.drawable_animation);
         ((AnimationDrawable) fAnimaitonView.getBackground()).start();
@@ -174,4 +207,31 @@ public class MainActivity extends AppCompatActivity {
         Animation a = AnimationUtils.loadAnimation(this, R.anim.base_animation);
         baseAnimationView.startAnimation(a);
     }
+    // ---------------------属性动画----------------------------------------------
+private void changeObjectTranslationX() {
+    ObjectAnimator.ofFloat(objectView,"translationX",100)
+            .setDuration(2000)
+            .start();
+}
+private void changeObjectScaleX() {
+    ObjectAnimator.ofFloat(objectView,"scaleX",0,1,2,1)
+            .setDuration(2000)
+            .start();
+}
+private void changeObjectRotation() {
+    ObjectAnimator.ofFloat(objectView,"rotation",0,100,180,360)
+            .setDuration(2000)
+            .start();
+}
+private void changeObjectAlpha() {
+    ObjectAnimator.ofFloat(objectView,"alpha",0f,0.2f,0.5f,0.7f,1f)
+            .setDuration(2000)
+            .start();
+}
+private void changeObjectColor() {
+    ObjectAnimator.ofInt(objectView,"backgroundColor",0xFFFF0000,0xFFFB742E)
+            .setDuration(2000)
+            .start();
+}
+
 }
