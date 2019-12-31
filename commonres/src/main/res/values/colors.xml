@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="tvPress">#666666</color>
+    <color name="textMain">#303030</color>
+    <color name="textNormal">#909090</color>
+    <color name="textMinor">#b1b1b1</color>
+    <color name="split">#f0f0f0</color>
+    <color name="bg">#fafafa</color>
+
 </resources>

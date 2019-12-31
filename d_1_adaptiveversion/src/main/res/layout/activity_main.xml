@@ -14,7 +14,12 @@
         android:text="Android各版本适配"/>
     <TextView
         android:id="@+id/version_6"
-        android:text="Android6.0适配"
+        android:text="Android 6.0适配"
+        style="@style/text_style"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:id="@+id/version_10"
+        android:text="Android 10适配"
         style="@style/text_style"/>
 
 
