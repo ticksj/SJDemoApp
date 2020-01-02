@@ -1,2 +1,8 @@
-include ':app', ':navigation', ':base_viewpager',':base_database', ':kotlin_note', ':b_3_view', ':a_2_service', ':b_4_animation', ':a_3_broadcast', ':e_2_develop_idea', ':a_4_contentprovider_a', ':a_4_contentprovider_b', ':d_1_adaptiveversion', ':commonres'
-rootProject.name='SJDemoApp'
+include ':app',':commonres'
+include ':a_2_service', ':a_3_broadcast',':a_4_contentprovider_a', ':a_4_contentprovider_b'
+include ':b_3_view', ':b_4_animation'
+include ':d_1_adaptiveversion'
+include ':e_2_develop_idea'
+
+include ':navigation', ':base_viewpager', ':base_database', ':kotlin_note'
+rootProject.name = 'SJDemoApp'

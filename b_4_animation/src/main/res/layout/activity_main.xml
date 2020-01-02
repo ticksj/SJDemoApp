@@ -115,6 +115,22 @@
                 android:textSize="12sp"
                 android:text="设置每一帧监听" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/object_a10"
+                style="@style/tv"
+                android:textSize="12sp"
+                android:text="属性动画实现亮度变换" />
+            <TextView
+                android:id="@+id/object_a11"
+                style="@style/tv"
+                android:textSize="12sp"
+                android:text="ValueAnimator实现亮度变换" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/iv2"

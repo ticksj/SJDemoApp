@@ -4,13 +4,17 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
+import android.animation.FloatEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -132,6 +136,18 @@ public class MainActivity extends AppCompatActivity {
                 changeObjectYWithUpdateListener();
             }
         });
+        findViewById(R.id.object_a10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScreenLuminance();
+            }
+        });
+        findViewById(R.id.object_a11).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScreenLuminanceWithValueAnimator();
+            }
+        });
         findViewById(R.id.f_tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
     // ---------------------基础动画----------------------------------------------
@@ -397,6 +415,104 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onAnimationUpdate: animation.getAnimatedFraction()=="+animation.getAnimatedFraction() );
             }
         });
+        animator.start();
     }
+
+    private void changeScreenLuminance() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(new Luminance(), "luminanceValue", 10, 100, 255, 100, 168);
+        animator.setDuration(9000);
+        animator.start();
+    }
+    private void changeScreenLuminanceWithValueAnimator() {
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(10, 255);
+        valueAnimator.setDuration(9000);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+          FloatEvaluator floatEvaluator =   new FloatEvaluator();
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float fraction = animation.getAnimatedFraction();
+                Float evaluate = floatEvaluator.evaluate(fraction, 10, 255);
+                setActivityBrightness(evaluate);
+            }
+        });
+        valueAnimator.start();
+    }
+
+    class Luminance{
+        float luminanceValue = 100;
+
+        public float getLuminanceValue() {
+            return luminanceValue;
+        }
+        public void setLuminanceValue(float luminanceValue) {
+            Log.e(TAG, "setLuminanceValue: "+luminanceValue );
+            this.luminanceValue = luminanceValue;
+            setActivityBrightness(luminanceValue);
+        }
+    }
+
+
+/**
+ * 设置当前Activity亮度
+ */
+private void setActivityBrightness(float value){
+    WindowManager.LayoutParams params = getWindow().getAttributes();
+    params.screenBrightness=value/255; //Activity亮度范围为0-1
+    getWindow().setAttributes(params);
+}
+
+
+
+    /**
+     * 获取屏幕亮度模式和屏幕亮度，并设置为手动模式
+     */
+    private void customScreenBrightness() {
+        try {
+            /**
+             * * 获得当前屏幕亮度的模式
+             * SCREEN_BRIGHTNESS_MODE_AUTOMATIC=1 为自动调节屏幕亮度
+             * SCREEN_BRIGHTNESS_MODE_MANUAL=0 为手动调节屏幕亮度
+             *
+             */
+            int screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+            Log.i(TAG, "screenMode = " + screenMode);
+            int screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+            Log.i(TAG, "screenBrightness = " + screenBrightness);
+            if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+            }
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 设置屏幕亮度模式
+     * SCREEN_BRIGHTNESS_MODE_AUTOMATIC=1 为自动调节屏幕亮度
+     * SCREEN_BRIGHTNESS_MODE_MANUAL=0 为手动调节屏幕亮度
+     *
+     * @param value
+     */
+    private void setScreenMode(int value) {
+        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
+    }
+
+    /**
+     * 设置屏幕亮度
+     *
+     * @param value
+     */
+    private void setScreenBrightness(float value) {
+        Window mWindow = getWindow();
+        WindowManager.LayoutParams params = mWindow.getAttributes();
+        float f = value / 255.0f;
+        params.screenBrightness = f;
+        mWindow.setAttributes(params);
+        // 保存设置的屏幕亮度值
+        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
+    }
+
+
+
 
 }
