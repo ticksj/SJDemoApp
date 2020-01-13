@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        getFragmentManager().beginTransaction().add(R.id.dynamic_fl,new DynamicFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.dynamic_fl,new DynamicFragment()).commit();
     }
 }
