@@ -18,7 +18,9 @@ import java.io.IOException;
 import java.util.UUID;
 
 import static android.content.Context.TELEPHONY_SERVICE;
-
+/**
+ * Created by SJ on 2020/1/13.
+ */
 public class UniqueIDUtils {
     private static final String TAG = "UniqueIDUtils";
     private static String uniqueID;
