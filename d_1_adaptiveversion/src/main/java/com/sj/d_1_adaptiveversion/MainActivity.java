@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sj.d_1_adaptiveversion.version_10.UniqueActivity;
-import com.sj.d_1_adaptiveversion.version_6.PermissionActivity;
+import com.sj.d_1_adaptiveversion.version_6.TestPermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.version_6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
+                startActivity(new Intent(MainActivity.this, TestPermissionActivity.class));
             }
         });
         findViewById(R.id.version_10).setOnClickListener(new View.OnClickListener() {
