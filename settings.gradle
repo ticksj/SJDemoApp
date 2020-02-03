@@ -1,4 +1,4 @@
-include ':app',':commonres'
+include ':app',':commonres', ':f_2_data_structure'
 include ':a_2_service', ':a_3_broadcast',':a_4_contentprovider_a', ':a_4_contentprovider_b'
 include ':b_3_view', ':b_4_animation'
 include ':d_1_adaptiveversion'
