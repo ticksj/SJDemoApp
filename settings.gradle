@@ -1,8 +1,10 @@
-include ':app',':commonres', ':f_2_data_structure'
-include ':a_2_service', ':a_3_broadcast',':a_4_contentprovider_a', ':a_4_contentprovider_b'
+include ':app'
+include ':a_2_service', ':a_3_broadcast', ':a_4_contentprovider_a', ':a_4_contentprovider_b',':a_5_fragment'
 include ':b_3_view', ':b_4_animation'
 include ':d_1_adaptiveversion'
 include ':e_2_develop_idea'
+include ':f_2_data_structure'
 
+include ':commonres'
 include ':navigation', ':base_viewpager', ':base_database', ':kotlin_note'
 rootProject.name = 'SJDemoApp'
