@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':g_1_jetpack', ':f_1_designpatterns'
 include ':a_2_service', ':a_3_broadcast', ':a_4_contentprovider_a', ':a_4_contentprovider_b',':a_5_fragment', ':a_6_important_moudle'
 include ':b_3_view', ':b_4_animation'
 include ':d_1_adaptiveversion'

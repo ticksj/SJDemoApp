@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".a_base.BaseActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"/>
-        <com.sj.b_3_view.DescriptionView
+        <com.sj.b_3_view.a_base.DescriptionView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="#fb742e"/>

@@ -1,4 +1,4 @@
-package com.sj.b_3_view;
+package com.sj.b_3_view.a_base;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -7,8 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+import com.sj.b_3_view.R;
+
+public class BaseActivity extends AppCompatActivity {
+    private static final String TAG = "BaseActivity";
     private View targetV;
     private TextView tv;
     private String string;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_base);
         targetV = findViewById(R.id.target_v);
         tv = ((TextView) findViewById(R.id.tv));
         initView();
