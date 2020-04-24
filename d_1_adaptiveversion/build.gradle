@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.sj.d_1_adaptiveversion"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

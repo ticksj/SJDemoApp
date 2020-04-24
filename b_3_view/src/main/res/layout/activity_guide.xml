@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.sj.b_3_view.GuideActivity">
+
+    <TextView
+        android:id="@+id/tv_1"
+        style="@style/text_style_1"
+        android:text="View基础知识" />
+    <TextView
+        android:id="@+id/tv_2"
+        style="@style/text_style_1"
+        android:text="View滚动" />
+    <TextView
+        android:id="@+id/tv_3"
+        style="@style/text_style_1"
+        android:text="View事件分发" />
+    <TextView
+        android:id="@+id/tv_4"
+        style="@style/text_style_1"
+        android:text="View滑动冲突" />
+
+
+</LinearLayout>

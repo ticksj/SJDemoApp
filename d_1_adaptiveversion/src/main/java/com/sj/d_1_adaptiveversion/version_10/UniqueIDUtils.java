@@ -65,7 +65,7 @@ public class UniqueIDUtils {
         String deviceId = null;
         try {
             deviceId = ((TelephonyManager) context.getSystemService(TELEPHONY_SERVICE)).getDeviceId();
-            if (TextUtils.isEmpty(deviceId)) {
+            if (TextUtils.isEmpty(deviceId)||"unknown".equals(deviceId)) {
                 return;
             }
         } catch (Exception e) {

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".structure_design.proxy_design.ProxyDesignActivity"
+    tools:ignore="MissingDefaultResource">
+    <TextView
+        android:id="@+id/tv_volley"
+        style="@style/text_style_1"
+        android:text="Volley请求" />
+
+    <TextView
+        android:id="@+id/tv_xutils"
+        style="@style/text_style_1"
+        android:text="Xutils请求" />
+
+    <TextView
+        android:id="@+id/tv_okhttp"
+        style="@style/text_style_1"
+        android:text="OKHTTP请求" />
+
+    <TextView
+        android:id="@+id/tv_4"
+        style="@style/text_style_1"
+        android:text="三方网络框架4" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </ScrollView>
+</LinearLayout>
+
