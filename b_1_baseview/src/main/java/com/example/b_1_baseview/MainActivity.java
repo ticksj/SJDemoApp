@@ -1,14 +1,19 @@
 package com.example.b_1_baseview;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.b_1_baseview.recyclerview.first.FirstRVActivity;
+import com.sj.commonres.BaseMainActivity;
 
-import android.os.Bundle;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseMainActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int setLayoutResID() {
+        return R.layout.activity_main;
     }
+
+    @Override
+    protected void initView() {
+        setSkip(findViewById(R.id.rv_first), FirstRVActivity.class);
+    }
+
+
 }
