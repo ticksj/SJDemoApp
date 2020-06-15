@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -48,6 +49,18 @@ public abstract class BaseRVAdapter<T,V extends RecyclerView.ViewHolder,L extend
     public V onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(getResId(), parent, false);
         return getViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull V holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemClickListener != null) {
+                    itemClickListener.clickItem(position);
+                }
+            }
+        });
     }
 
     public interface RVItemClickListener{
