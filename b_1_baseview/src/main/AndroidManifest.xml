@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".baseview.EdittextActivity"></activity>
         <activity android:name=".recyclerview.third.ThirdRVActivity" />
-        <activity android:name=".recyclerview.second.SecondRVActivity" />
-        <activity android:name=".recyclerview.first.FirstRVActivity" />
+        <activity android:name=".recyclerview.RVSecondActivity"></activity>
+        <activity android:name=".recyclerview.RVFirstActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

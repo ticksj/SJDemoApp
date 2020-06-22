@@ -4,29 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <LinearLayout
-        style="@style/ll_main">
+
+    <LinearLayout style="@style/ll_main">
+
         <TextView
-            android:id="@+id/et"
-            android:text="Android Edittext"
+            android:id="@+id/tv_rv_first"
             style="@style/text_style"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="Android RecyclerView 基础" />
+
         <TextView
-            android:id="@+id/rv_first"
-            android:text="Android RecyclerView 基础"
+            android:id="@+id/tv_rv_second"
             style="@style/text_style"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="Android RecyclerView 进阶" />
+
         <TextView
-            android:id="@+id/rv_second"
-            android:text="Android RecyclerView 进阶"
+            android:id="@+id/tv_rv_third"
             style="@style/text_style"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="Android RecyclerView 扩展" />
+
         <TextView
-            android:id="@+id/rv_third"
-            android:text="Android RecyclerView 扩展"
+            android:id="@+id/tv_vp"
             style="@style/text_style"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="Android ViewPager 基础" />
 
     </LinearLayout>
-
 </ScrollView>

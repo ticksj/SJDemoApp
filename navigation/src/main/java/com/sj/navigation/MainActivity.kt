@@ -1,8 +1,7 @@
 package com.sj.navigation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -17,10 +16,6 @@ class MainActivity : AppCompatActivity() {
         var navController = Navigation.findNavController(this, R.id.nav_host_fg)
         bnv.setupWithNavController(navController)
     }
-
-
-
-
 
     override fun onSupportNavigateUp() =
         findNavController(this, R.id.nav_host_fg).navigateUp()
