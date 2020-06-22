@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
-    style="@style/ll_main">
-    <TextView
-        android:id="@+id/rv_first"
-        android:text="Android RecyclerView 基础"
-        style="@style/text_style"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:id="@+id/rv_second"
-        android:text="Android RecyclerView 进阶"
-        style="@style/text_style"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:id="@+id/rv_third"
-        android:text="Android RecyclerView 扩展"
-        style="@style/text_style"
-        android:layout_marginBottom="10dp"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        style="@style/ll_main">
+        <TextView
+            android:id="@+id/et"
+            android:text="Android Edittext"
+            style="@style/text_style"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/rv_first"
+            android:text="Android RecyclerView 基础"
+            style="@style/text_style"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/rv_second"
+            android:text="Android RecyclerView 进阶"
+            style="@style/text_style"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/rv_third"
+            android:text="Android RecyclerView 扩展"
+            style="@style/text_style"
+            android:layout_marginBottom="10dp"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

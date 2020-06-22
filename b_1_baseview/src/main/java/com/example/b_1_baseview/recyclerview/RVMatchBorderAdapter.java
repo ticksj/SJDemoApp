@@ -2,7 +2,9 @@ package com.example.b_1_baseview.recyclerview;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,16 +18,23 @@ import java.util.List;
 /**
  * Created by SJ on 2020/5/14.
  */
-public class RVAdapter extends BaseRVAdapter<String, RVAdapter.ViewHolder, BaseRVAdapter.RVItemClickListener> {
+public class RVMatchBorderAdapter extends BaseRVAdapter<String, RVMatchBorderAdapter.ViewHolder, BaseRVAdapter.RVItemClickListener> {
 
 
-    public RVAdapter(Context context, List<String> lists) {
+    public RVMatchBorderAdapter(Context context, List<String> lists) {
         super(context, lists);
     }
 
     @Override
     protected int getResId() {
-        return R.layout.item_content;
+        return R.layout.item_content_match_border;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(getResId(), parent, false);
+        view.getLayoutParams().height = parent.getHeight() / 3;
+        return getViewHolder(view);
     }
 
     @Override
@@ -37,21 +46,6 @@ public class RVAdapter extends BaseRVAdapter<String, RVAdapter.ViewHolder, BaseR
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
         holder.tvContent.setText(getLists().get(position));
-    }
-
-    /**
-     *
-     * @param holder
-     * @param position
-     * @param payloads 增量更新
-     */
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
-        if (payloads.isEmpty()) {
-            onBindViewHolder(holder, position);
-        }else {
-
-        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

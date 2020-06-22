@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
+ * 通用菜单跳转主界面
  * Created by SJ on 2020/5/14.
  */
 public abstract class BaseMainActivity extends AppCompatActivity {

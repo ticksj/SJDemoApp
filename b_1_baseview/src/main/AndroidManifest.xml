@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".recyclerview.second.SecondRVActivity"></activity>
+        <activity android:name=".baseview.EdittextActivity"></activity>
+        <activity android:name=".recyclerview.third.ThirdRVActivity" />
+        <activity android:name=".recyclerview.second.SecondRVActivity" />
         <activity android:name=".recyclerview.first.FirstRVActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

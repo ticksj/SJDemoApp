@@ -10,7 +10,7 @@
     <style name="text_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_fb742e</item>
+        <item name="android:background">@drawable/shape_fb742e_40r</item>
         <item name="android:padding">10dp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:textColor">#ffffff</item>
@@ -40,5 +40,15 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="edittext_style" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_fb742e_8r</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColorHint">#99ffffff</item>
     </style>
 </resources>
