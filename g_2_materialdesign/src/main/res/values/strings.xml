@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">g_2_materialdesign</string>
+
+
+    <string name="nestedscrollview">
+        NestedScrollView：滚动视图\n
+        &#160;&#160;&#160;&#160;需要设置 app:layout_behavior为@string/appbar_scrolling_view_behavior android:nestedScrollingEnabled\n
+        &#160;&#160;&#160;&#160;设置AppBarLayout是否响应滚动事件</string>
+    <string name="collapsingtoolbarlayout">
+        CollapsingToolbarLayout\n
+        app:layout_collapseMode 折叠模式\n
+        &#160;&#160;&#160;&#160;parallax：视差效果(app:layout_collapseParallaxMultiplier 设置视差值0~1)，折叠过程中不是完全同步，更符合视觉效果，类似于遮挡住消失的内容\n
+        &#160;&#160;&#160;&#160;pin：跟随滚动，在折叠时会固定在折叠栏内，不会滑出屏幕\n
+        &#160;&#160;&#160;&#160;none：无特殊效果，跟随滚动\n
+        app:titleEnabled\n
+        &#160;&#160;&#160;&#160;设置title是否生效，为false时title的滑动操作会失效(CollapsingToolbarLayout与Toolbar都可以设置提title，当都设置时CollapsingToolbarLayout设置的title会覆盖生效，否则自动获取Toolbar内部设置的title)</string>
+    <string name="appbarlayout">
+        AppBarLayout\n
+        app:layout_scrollFlags 滚动动作设定\n
+        &#160;&#160;&#160;&#160;scroll 滚动 ，设定后配合滚动视图进行滚动，向上滚动时优先AppBarLayout子View动作执行，向下滚动时优先滚动视图滚动（如果当前子View之前的子View未设置该属性则当前子View设置失效）\n
+        &#160;&#160;&#160;&#160;enterAlways 必须配合第一个属性使用，优先AppBarLayout子View动作执行\n
+        &#160;&#160;&#160;&#160;enterAlwaysCollapsed 必须配合第一个第二个属性一起使用，相较上方的效果，只在下滑时多了一个动作限制，滚动视图下滑时AppBarLayout的子View优先下滑最小高度的距离，之后继续滚动视图的滚动，滚动至边界时继续AppBarLayout的动作，在本次代码中 CollapsingToolbarLayout设置了Toolbar作为子View，同时它的最小高度便设置为Toolbar的高度，滚动的效果便是滚动视图下滑时先滑出折叠的标题栏，滚动至边界时折叠标题栏才开始继续下滑至展开状态\n
+        &#160;&#160;&#160;&#160;exitUntilCollapsed 必须配合第一个属性使用，使用效果类似与第一种，但同样多了一个最小高度的限制，这个限制决定了最小高度的子View不能被推出屏幕外，在本次代码的效果就是状态栏在滚动至折叠状态时再不会被滑出屏幕 \n
+        &#160;&#160;&#160;&#160;snap 必须配合上方属性使用，使用之后AppBarLayout的动作不会出现中间状态，AppBarLayout在执行动作时失去了手势响应时会自动执行到动作起始或结束状态</string>
+    <string name="toolbar">
+        &#160;&#160;&#160;&#160;1. 声明Toolbar，并设置替换ActionBar，使用Toolbar的Activity主题要设置为NoActionbar\n
+        &#160;&#160;&#160;&#160;2. 创建菜单文件，覆盖父类方法实现菜单功能</string>
+    <string name="drawerlayout">
+        &#160;&#160;&#160;&#160;1. DrawerLayout 作为根布局使用，子布局1作为主屏幕内容，子View2作为菜单内容
+        &#160;&#160;&#160;&#160;2. 子View2需要指定android:layout_gravity 属性 left，right，start(根据系统语言方向决定)</string>
+    <string name="toolbar2">toolbar有默认左侧按钮，默认图标为返回上一页箭头，需要手动启用及设置监听方法(id为固定值)</string>
+
+</resources>

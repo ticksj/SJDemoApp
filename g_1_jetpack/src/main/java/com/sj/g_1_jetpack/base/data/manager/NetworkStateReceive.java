@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
-import com.xiangxue.common.R;
-import com.xiangxue.common.utils.NetworkUtils;
+import com.sj.g_1_jetpack.base.utils.NetworkUtils;
 
 import java.util.Objects;
 
@@ -25,7 +24,7 @@ public class NetworkStateReceive extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (Objects.equals(intent.getAction(), ConnectivityManager.CONNECTIVITY_ACTION)) {
             if (!NetworkUtils.isConnected()) {
-                Toast.makeText(context, context.getString(R.string.network_not_good), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "网络问题", Toast.LENGTH_SHORT).show();
 
                 // .....
             }

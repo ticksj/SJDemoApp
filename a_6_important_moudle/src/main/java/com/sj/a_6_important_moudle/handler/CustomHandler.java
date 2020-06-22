@@ -7,7 +7,7 @@ public class CustomHandler {
     final CustomLooper looper;
     final CustomMessageQueue messageQueue;
     public CustomHandler() {
-        //获取当前线程唯一的Looper
+        //获取当前线程唯一的Looper  不能new 的原因 保证唯一
         this.looper = CustomLooper.myLooper();
         //获取当前线程唯一的MessageQueue
         this.messageQueue = looper.mQueue;

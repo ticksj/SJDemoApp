@@ -11,7 +11,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.xiangxue.common.callback.CustomProjectLiveData;
+import com.sj.g_1_jetpack.base.callback.CustomProjectLiveData;
 
 import static java.util.Objects.requireNonNull;
 

@@ -1,4 +1,4 @@
-package com.example.b_1_baseview.recyclerview.first;
+package com.example.b_1_baseview.recyclerview;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.b_1_baseview.R;
-import com.example.b_1_baseview.recyclerview.RVAdapter;
 import com.sj.commonres.adapter.BaseRVAdapter;
 
 import java.util.ArrayList;
 
-public class FirstRVActivity extends AppCompatActivity {
+public class RVFirstActivity extends AppCompatActivity {
     private RecyclerView rvHorizontal;
     private RecyclerView rvGrid;
     private RecyclerView rvStream;
@@ -39,7 +38,7 @@ public class FirstRVActivity extends AppCompatActivity {
             @Override
             public void clickItem(int position) {
                 Log.e("TAG", "clickItem:" + position);
-                Toast.makeText(FirstRVActivity.this, "click"+position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RVFirstActivity.this, "click"+position, Toast.LENGTH_SHORT).show();
             }
         });
         rvHorizontal.setAdapter(adapter);

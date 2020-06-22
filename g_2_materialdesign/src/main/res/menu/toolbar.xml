@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--app:showAsAction="always"	//永远显示在Toolbar中，屏幕空间不够则不显示-->
+    <!--app:showAsAction="ifRoom"	//屏幕空间足够显示在Toolbar中，不够显示在菜单中-->
+    <!--app:showAsAction="never"	//永远显示在菜单中-->
+    <!--Toolbar中的action按钮只会显示图片，菜单中的action按钮只会显示文字-->
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/iv_add"
+        android:title="Backup"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/iv_delete"
+        android:title="Delete"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/iv_special"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+
+</menu>

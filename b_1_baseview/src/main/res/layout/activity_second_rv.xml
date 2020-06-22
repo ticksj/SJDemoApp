@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/ll_main"
-    tools:context=".recyclerview.second.SecondRVActivity">
+    tools:context=".recyclerview.RVSecondActivity">
 
 </LinearLayout>
