@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ll_content"
     style="@style/ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:focusable="true"
     android:focusableInTouchMode="true">
+    <LinearLayout
+        style="@style/ll_main"
+        android:layout_width="match_parent"
+        android:id="@+id/ll_content"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:id="@+id/tv_snackbar"
+            style="@style/text_style"
+            android:text="1.snackbar"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til"
+            style="@style/text_style"
+            app:errorTextColor="#ffffff"
+            app:hintTextColor="#ff0000"
+            android:textColorHint="#ffffff">
+            <EditText
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:hint="2.TextInputlayout"
+                android:textColor="#ffffff"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tv_1"
+            style="@style/text_style"
+            android:text="3.DrawerLayout、TabLayout、Navigation"/>
+        <TextView
+            android:id="@+id/tv_2"
+            style="@style/text_style"
+            android:text="4.协调布局页"/>
+        <TextView
+            android:id="@+id/tv_3"
+            style="@style/text_style"
+            android:text="VP联动"/>
 
-    <TextView
-        android:id="@+id/tv_snackbar"
-        style="@style/text_style"
-        android:text="snackbar"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til"
-        style="@style/text_style_2"
-        app:errorTextColor="#ffffff"
-        app:hintTextColor="#ff0000"
-        android:textColorHint="#ffffff">
-        <EditText
-            android:layout_width="match_parent"
-            android:background="@null"
-            android:hint="textinputlayout包裹的Edittext"
-            android:textColor="#ffffff"
-            android:layout_height="match_parent"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <TextView
-        android:id="@+id/tv_1"
-        style="@style/text_style"
-        android:text="侧滑布局"/>
-    <TextView
-        android:id="@+id/tv_2"
-        style="@style/text_style"
-        android:text="折叠标题栏"/>
-    <TextView
-        android:id="@+id/tv_3"
-        style="@style/text_style"
-        android:text="VP联动"/>
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

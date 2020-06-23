@@ -17,13 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MDDrawerLayoutActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".MDCoordLayoutActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".MDTabVPActivity"
+            android:name=".MDDrawerTabNavigationVPActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 

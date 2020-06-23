@@ -24,19 +24,28 @@ public class MainActivity extends BaseMainActivity {
 
     @Override
     protected void initView() {
+        findViewById(R.id.tv_snackbar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSnackbar();
+            }
+        });
         llContent = (LinearLayout) findViewById(R.id.ll_content);
         til = (TextInputLayout) findViewById(R.id.til);
+        setTIL();
+        setSkip(R.id.tv_1, MDDrawerTabNavigationVPActivity.class);
+        setSkip(R.id.tv_2, MDCoordLayoutActivity.class);
+        setSkip(R.id.tv_3, MDDrawerTabNavigationVPActivity.class);
+    }
+
+    private void setTIL() {
         til.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.toString().length()<6) {
@@ -47,15 +56,6 @@ public class MainActivity extends BaseMainActivity {
                 }
             }
         });
-        findViewById(R.id.tv_snackbar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSnackbar();
-            }
-        });
-        setSkip(R.id.tv_1, MDDrawerLayoutActivity.class);
-        setSkip(R.id.tv_2, MDCoordLayoutActivity.class);
-        setSkip(R.id.tv_3, MDTabVPActivity.class);
     }
 
     private void showSnackbar() {
@@ -65,6 +65,7 @@ public class MainActivity extends BaseMainActivity {
                     public void onClick(View v) {
                         Toast.makeText(MainActivity.this, "点击Snackbar", Toast.LENGTH_SHORT).show();
                     }
-                }).setDuration(Snackbar.LENGTH_SHORT).show();
+                })
+                .setDuration(Snackbar.LENGTH_SHORT).show();
     }
 }

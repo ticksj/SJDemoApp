@@ -24,10 +24,12 @@
         &#160;&#160;&#160;&#160;snap 必须配合上方属性使用，使用之后AppBarLayout的动作不会出现中间状态，AppBarLayout在执行动作时失去了手势响应时会自动执行到动作起始或结束状态</string>
     <string name="toolbar">
         &#160;&#160;&#160;&#160;1. 声明Toolbar，并设置替换ActionBar，使用Toolbar的Activity主题要设置为NoActionbar\n
-        &#160;&#160;&#160;&#160;2. 创建菜单文件，覆盖父类方法实现菜单功能</string>
+        &#160;&#160;&#160;&#160;2. 创建菜单文件，覆盖父类方法实现菜单功能\n
+        &#160;&#160;&#160;&#160;3. toolbar有默认左侧按钮，默认图标为返回上一页箭头，需要手动启用及设置监听方法(id为固定值)
+
+    </string>
     <string name="drawerlayout">
         &#160;&#160;&#160;&#160;1. DrawerLayout 作为根布局使用，子布局1作为主屏幕内容，子View2作为菜单内容
         &#160;&#160;&#160;&#160;2. 子View2需要指定android:layout_gravity 属性 left，right，start(根据系统语言方向决定)</string>
-    <string name="toolbar2">toolbar有默认左侧按钮，默认图标为返回上一页箭头，需要手动启用及设置监听方法(id为固定值)</string>
 
 </resources>
